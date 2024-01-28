@@ -16,7 +16,6 @@ export default async function Shop() {
       <ShopHeader />
       <Products products={products} />
       <Orders />
-
       <ShopFooter />
     </div>
   );

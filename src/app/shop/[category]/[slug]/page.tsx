@@ -11,6 +11,7 @@ import AddToCartBtn from "./AddToCartBtn";
 import Link from "next/link";
 import { FaCheck } from "react-icons/fa";
 import { getPolishCurrency } from "../../../../../utils/getPolishCurrency";
+import ProductImages from "./ProductImages";
 export async function generateStaticParams() {
   const products = await getShopProduct();
   return products?.map((product: ArtworkData) => ({
@@ -50,19 +51,7 @@ export default async function Page({ params }: { params: ArtworkData }) {
           <p className="text-zinc-700 text-lg sm:text-base xl:text-lg text-left my-3">
             {product.description}
           </p>
-          <div className="grid grid-cols-3 lg:grid-cols-5 gap-2 mb-3">
-            {product.images.map((image: any, i: any) => (
-              <div key={i} className="aspect-square">
-                <Image
-                  src={image}
-                  width={1024}
-                  height={1024}
-                  alt=""
-                  className="w-full h-full object-cover drop-shadow-lg shadow-black"
-                />
-              </div>
-            ))}
-          </div>
+          <ProductImages product={product} />
           <span className="text-zinc-600 drop-shadow-lg shadow-black text-lg">
             Artysta: <strong>{product.artist}</strong>
           </span>
@@ -112,9 +101,9 @@ export default async function Page({ params }: { params: ArtworkData }) {
                 </p>
               </div>
             ))}
-            <Link href="/blog/art" className="text-blue-500">
+            {/* <Link href="/blog/art" className="text-blue-500">
               Więcej na moim blogu
-            </Link>
+            </Link> */}
           </div>
           <div className="bg-gray-200 p-3 py-6">
             <h3 className="mt-8 text-zinc-800 drop-shadow-lg shadow-black text-lg sm:text-xl xl:text-2xl text-center lg:text-left font-bold flex flex-row items-center">

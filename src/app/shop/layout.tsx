@@ -61,15 +61,13 @@ export const metadata: Metadata = {
       type: "image/x-icon",
     },
   ],
-  title:
-    "BlackbellArt - Sklep | Obrazy Na Płótnie | Sztuka Na Zamówienie | Naklejki",
+  title: "BlackbellArt - Sklep | Obrazy Na Płótnie | Sztuka Na Zamówienie",
   description:
     "Sklep ze sztuką BlackbellArt. Kup oryginalne obrazy na płótnie, naklejki na ścianę i obrazy na zamówienie. Znajdź inspirację i stwórz własny projekt.",
   openGraph: {
     type: "website",
     url: "https://blackbellart.com",
-    title:
-      "BlackbellArt - Sklep | Obrazy Na Płótnie | Sztuka Na Zamówienie | Naklejki",
+    title: "BlackbellArt - Sklep | Obrazy Na Płótnie | Sztuka Na Zamówienie",
     description:
       "Sklep ze sztuką BlackbellArt. Kup oryginalne obrazy na płótnie, naklejki na ścianę i obrazy na zamówienie. Znajdź inspirację i stwórz własny projekt.",
     siteName: "Black Bell Tattoo & Art",

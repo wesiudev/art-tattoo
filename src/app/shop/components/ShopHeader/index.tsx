@@ -24,7 +24,7 @@ export default function ShopHeader() {
           <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-purple-400">
             Sztuka
           </p>
-          <h2 className="text-left mb-5 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
+          <h1 className="text-left mb-5 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
             Obrazy na płótnie, które <br className="block" />
             swoją{" "}
             <span className="text-purple-400 font-bold drop-shadow-lg shadow-black ">
@@ -33,20 +33,24 @@ export default function ShopHeader() {
             <span className="inline-block text-deep-purple-accent-400">
               wypełniają przestrzeń energią.
             </span>
-          </h2>
+          </h1>
           <p className="pr-5 mb-5 text-base text-gray-700 md:text-lg">
             Sztuka jest dla mnie sposobem na życie. To, co tworzę, jest wyrazem
             mojej osobowości. Tworzę obrazy inspirowane światem przyrody,
             okultyzmu i wnętrza duchowego.
           </p>
           <div className="flex items-center">
-            <ScrollTo
-              title="Zamów obraz"
-              destination="orders"
-              className="cursor-pointer inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-400 hover:bg-purple-700 focus:shadow-outline focus:outline-none"
-            />
             <Link
-              href="/"
+              title="Zamów obraz"
+              href="/wycena-obrazu"
+              className="cursor-pointer inline-flex items-center justify-center h-12 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-purple-400 hover:bg-purple-700 focus:shadow-outline focus:outline-none"
+            >
+              Wycena obrazów
+            </Link>
+            <Link
+              href="https://www.facebook.com/blackbell.c.e"
+              title="Przejdź do Facebooka"
+              target="_blank"
               aria-label=""
               className="inline-flex items-center font-semibold text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-700"
             >

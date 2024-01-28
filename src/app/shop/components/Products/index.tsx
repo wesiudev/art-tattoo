@@ -20,17 +20,7 @@ export default function Products({ products }: { products: ArtworkData[] }) {
         imageAlt="Oryginalne obrazy na płótnie"
         imageUrl="/images/shop/Blank_Canvas.png"
       />
-      <div className="border-l-4 border-purple-300 bg-gray-100 py-3 pl-3 lg:pl-6 mt-12">
-        <h2 className="text-4xl  font-bold text-zinc-700 drop-shadow-lg shadow-black flex flex-row items-center">
-          Oryginalne obrazy
-        </h2>
-        <p className=" mt-3 text-gray-400 w-3/4 lg:w-1/2">
-          Oryginalna sztuka malowana na płótnie oraz innego rodzaju
-          powierzchniach. Obrazy są dostępne również w formie druku na wysokiej
-          jakości papierze.
-        </p>
-      </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-12">
+      <div className="grid grid-cols-2 md:grid-cols-3 2xl:grid-cols-6 gap-3 md:gap-6 mt-12">
         {products.map((product: ArtworkData, i) => (
           <>
             {product.category === "artwork" && (
@@ -46,15 +36,6 @@ export default function Products({ products }: { products: ArtworkData[] }) {
           imageAlt="Oryginalne druki obrazów na płótnie"
           imageUrl="/images/shop/Blank_Canvas_2.png"
         />
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-12">
-          {products.map((product: ArtworkData, i) => (
-            <>
-              {product.category === "print" && (
-                <Product product={product} key={i} />
-              )}
-            </>
-          ))}
-        </div>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { FaLock } from "react-icons/fa";
 
 export default function Blog() {
   return (
@@ -13,10 +14,14 @@ export default function Blog() {
       </h2>
       <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-6 mt-12">
         <Link
-          href="/blog/art"
+          href="/blog/"
           title="Przejdź do bloga o sztuce"
-          className="group aspect-square bg-slate-200 rounded-xl border border-gray-100 drop-shadow-lg shadow-black w-[80vw] lg:w-[30vw]"
+          className="relative group aspect-square bg-slate-200 rounded-xl border border-gray-100 drop-shadow-lg shadow-black w-[80vw] lg:w-[30vw]"
         >
+          <div className="z-50 w-full h-full absolute left-0 top-0 rounded-xl bg-black bg-opacity-70 flex items-center justify-center text-center text-white cursor-not-allowed flex-col">
+            <FaLock className="h-8 w-8 mb-3" />
+            Już wkrótce
+          </div>
           <Image
             src="/images/blog/art-blog-link.webp"
             width={1080}

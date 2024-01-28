@@ -21,7 +21,7 @@ export default function TopBar() {
             height={1024}
             alt="Blackbell Art logo"
             className="h-[40px] w-auto"
-          />{" "}
+          />
           Blackbell Art
         </Link>
         <button
