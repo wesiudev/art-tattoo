@@ -3,7 +3,7 @@ import Link from "next/link";
 import StripeButton from "./StripeButton";
 import { useState } from "react";
 import CheckoutSummary from "./CheckoutSummary";
-import PrepareCart from "../shop/components/PrepareCart";
+import PrepareCart from "../(home)/components/PrepareCart";
 import { useSelector } from "react-redux";
 export type CustomerInfo = {
   firstName: string;

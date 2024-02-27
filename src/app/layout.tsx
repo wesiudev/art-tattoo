@@ -6,6 +6,7 @@ import { Providers } from "@/redux/Provider";
 import Script from "next/script";
 import TopBar from "./(home)/components/ShopHero/TopBar";
 import { Cardo } from "next/font/google";
+import PrepareCart from "./(home)/components/PrepareCart";
 export default async function RootLayout({
   children,
 }: {
@@ -17,6 +18,7 @@ export default async function RootLayout({
         className={`${cocosharp.variable} ${cardo.variable} ${anton.variable} bg-[#1d1d1d]`}
       >
         <Providers>
+          <PrepareCart />
           <TopBar />
           {children}
         </Providers>
