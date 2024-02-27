@@ -2,6 +2,7 @@
 import Link from "next/link";
 
 import {
+  FaArrowLeft,
   FaArtstation,
   FaChartLine,
   FaChevronDown,
@@ -20,7 +21,13 @@ import {
 
 import { useState } from "react";
 import Image from "next/image";
-export default function Nav() {
+export default function Nav({
+  isNavOpen,
+  setNavOpen,
+}: {
+  isNavOpen: boolean;
+  setNavOpen: Function;
+}) {
   const [expandedItems, setExpandedItems] = useState([]);
 
   const navItems = [
@@ -95,12 +102,16 @@ export default function Nav() {
   ];
 
   return (
-    <div className="fixed scrollbar font-coco !text-white">
+    <div
+      className={`fixed z-[51] scrollbar font-coco !text-white duration-500 ${
+        isNavOpen ? "translate-x-[0]" : "-translate-x-[300px]"
+      }`}
+    >
       <div className="flex flex-col h-screen w-[300px] border-r-[1px] border-[#303345] bg-[#222430] ">
-        <div className="text-white py-4 px-3">
+        <div className="text-white py-4 px-3 relative">
           <h1 className="text-base font-bold  flex flex-row items-center ">
             <Image
-              src="/favicons/favicon-32x32.png"
+              src="/favicons/favicon.ico"
               width={36}
               height={36}
               alt=""
@@ -108,6 +119,14 @@ export default function Nav() {
             />{" "}
             Panel administracyjny
           </h1>
+          <button
+            onClick={() => setNavOpen(!isNavOpen)}
+            className="absolute -right-[50px] w-[50px] h-[50px] top-0 !z-[9999999] bg-[#222430] text-white flex items-center justify-center"
+          >
+            <FaArrowLeft
+              className={`${isNavOpen ? "rotate-0" : "rotate-180"}`}
+            />
+          </button>
         </div>
         <div className="mt-12">
           <ul className="flex flex-col flex-wrap justify-between w-full px-2">

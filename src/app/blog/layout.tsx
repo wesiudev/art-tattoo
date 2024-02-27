@@ -1,8 +1,7 @@
-import Link from "next/link";
-import TopBar from "../shop/components/ShopHeader/TopBar";
-import Orders from "../shop/components/Orders";
-import ShopFooter from "../shop/components/ShopFooter";
-import PrepareCart from "../shop/components/PrepareCart";
+import TopBar from "../(home)/components/ShopHero/TopBar";
+import Orders from "../(home)/components/Orders";
+import ShopFooter from "../(home)/components/ShopFooter";
+import PrepareCart from "../(home)/components/PrepareCart";
 
 export default function ShopLayout({
   children,

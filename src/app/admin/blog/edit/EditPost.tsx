@@ -278,13 +278,13 @@ export default function EditPost({
             </button>
           )}
         </div>
-        <div className="flex flex-col relative w-full ">
+        <div className="flex flex-col relative w-full">
           <div className="absolute w-full ">
             <div className="fixed h-screen overflow-y-scroll scrollbarMain w-full">
               <h1 className="w-full px-3 pl-12 text-3xl text-white font-bold z-[50] pt-24">
                 Podgląd
               </h1>
-              <div className="flex flex-col p-12  prose lg:prose-xl prose-invert pr-28">
+              <div className="w-[50%] flex flex-col p-12 prose 2xl:prose-xl prose-invert">
                 <h1 className="leading-relaxed font-bold">
                   {selectedPost.title}
                 </h1>

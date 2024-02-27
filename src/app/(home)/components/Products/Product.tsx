@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function Product({ product }: { product: ArtworkData }) {
   return (
     <Link
-      href={`${process.env.NEXT_PUBLIC_SITE_URL}/shop/${product.category}/${product.slug}`}
+      href={`${process.env.NEXT_PUBLIC_SITE_URL}/${product.category}/${product.slug}`}
       className="relative rounded-xl flex items-center justify-center flex-col hover:scale-95 duration-150"
     >
       <div className="absolute bottom-4 w-full h-max">

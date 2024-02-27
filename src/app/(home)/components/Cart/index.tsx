@@ -3,12 +3,9 @@
 import { removeFromCart } from "@/redux/slices/shopSlice";
 import { ArtworkData } from "@/types";
 import Link from "next/link";
-import { redirect } from "next/navigation";
 import { FaShoppingCart } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import { polishToEnglish } from "../../../../../utils/polishToEnglish";
 import Image from "next/image";
-import { spawn } from "child_process";
 
 /* eslint-disable @next/next/no-img-element */
 
@@ -46,14 +43,11 @@ export default function Cart({
           aria-modal="true"
           role="dialog"
         >
-          {cart?.length !== 0 && (
-            <span className="text-zinc-800 font-bold">Twój koszyk</span>
-          )}
           <div className="flex flex-col items-center justify-center w-full">
-            {cart.length === 0 && (
+            {!cart?.length && (
               <>
                 <FaShoppingCart className="text-7xl text-gray-400 mt-12" />
-                <p className="text-gray-400 mt-5 text-center">
+                <p className="text-gray-400 mt-5 text-center text-sm lg:text-base mb-3">
                   Twój koszyk jest pusty...
                 </p>
               </>
@@ -105,17 +99,17 @@ export default function Cart({
               </div>
             )}
           </div>
-          <div className="mt-8 space-y-6 relative">
+          <div className="space-y-6 relative">
             <div className="space-y-4 text-center">
-              {cart.length === 0 && (
+              {cart?.length === typeof undefined && (
                 <button
-                  disabled={!cart.length}
+                  disabled={!cart?.length}
                   className="disabled:cursor-not-allowed hover:disabled:blur-sm duration-200 block rounded bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-900 w-full"
                 >
                   Do płatności
                 </button>
               )}
-              {cart.length !== 0 && (
+              {cart?.length !== typeof undefined && (
                 <Link
                   title="Przejdź do płatności"
                   href="/checkout"

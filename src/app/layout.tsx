@@ -4,7 +4,8 @@ import localFont from "next/font/local";
 import { Anton } from "next/font/google";
 import { Providers } from "@/redux/Provider";
 import Script from "next/script";
-
+import TopBar from "./(home)/components/ShopHero/TopBar";
+import { Cardo } from "next/font/google";
 export default async function RootLayout({
   children,
 }: {
@@ -12,15 +13,20 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="pl">
-      <body className={`${cocosharp.variable} ${anton.variable} bg-[#1d1d1d]`}>
-        <Providers>{children}</Providers>
-        <Script src="https://www.googletagmanager.com/gtag/js?id=GT-WRDF58Q" />
+      <body
+        className={`${cocosharp.variable} ${cardo.variable} ${anton.variable} bg-[#1d1d1d]`}
+      >
+        <Providers>
+          <TopBar />
+          {children}
+        </Providers>
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-SYTL7MG8Q4" />
         <Script id="google-analytics">
           {`
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'GT-WRDF58Q');
+              gtag('config', 'G-SYTL7MG8Q4');
           `}
         </Script>
       </body>
@@ -33,7 +39,13 @@ const anton = Anton({
   weight: ["400"],
   variable: "--font-anton",
 });
-
+const cardo = Cardo({
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-cardo",
+});
 const cocosharp = localFont({
   src: [
     {

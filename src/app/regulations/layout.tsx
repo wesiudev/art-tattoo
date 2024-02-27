@@ -1,7 +1,7 @@
 import { Metadata } from "next";
-import TopBar from "../shop/components/ShopHeader/TopBar";
-import Orders from "../shop/components/Orders";
-import ShopFooter from "../shop/components/ShopFooter";
+import TopBar from "../(home)/components/ShopHero/TopBar";
+import Orders from "../(home)/components/Orders";
+import ShopFooter from "../(home)/components/ShopFooter";
 
 export default async function RootLayout({
   children,

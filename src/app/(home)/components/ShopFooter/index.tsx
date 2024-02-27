@@ -1,6 +1,7 @@
 import Link from "next/link";
 import {
   FaArtstation,
+  FaClock,
   FaEnvelope,
   FaFacebook,
   FaInstagram,
@@ -32,13 +33,13 @@ export default function ShopFooter({
         }`}
       >
         <section
-          className={`xl:block flex flex-col  xl:text-left ${
-            isProductSlug ? "" : "items-center justify-center text-center"
+          className={`xl:block flex flex-col ${
+            isProductSlug ? "" : "items-start justify-start"
           }`}
         >
           <h2 className="text-2xl font-bold text-green-300 w-full">Kontakt</h2>
           <address className="text-gray-200 mt-3">
-            <p>ul. Janusza Korczaka 15</p>
+            <p>ul. Janusza Korczaka 15/71</p>
             <p>86-300 Grudziądz</p>
             <p>NIP: 8762502388</p>
           </address>
@@ -61,10 +62,12 @@ export default function ShopFooter({
         </section>
         <section
           className={`xl:block flex flex-col ${
-            isProductSlug ? "mt-12 md:mt-0" : "items-center justify-center"
+            isProductSlug ? "mt-12 md:mt-0" : "items-start justify-start"
           }`}
         >
-          <h2 className="text-2xl font-bold text-green-300">Social Media</h2>
+          <h2 className="text-2xl font-bold text-green-300 mt-4 sm:mt-0">
+            Social Media
+          </h2>
           <div className="text-white font-coco">
             <Link
               target="_blank"
@@ -97,16 +100,17 @@ export default function ShopFooter({
           </div>
         </section>
         <section
-          className={`flex flex-col   ${isProductSlug ? "mt-12" : "lg:mt-0"}`}
+          className={`xl:block flex flex-col   ${
+            isProductSlug ? "mt-12 md:mt-0" : "items-start justify-start"
+          }`}
         >
-          <div
-            className={`grid grid-cols-1 ${
-              isProductSlug ? "xl:grid-cols-1" : "xl:grid-cols-2"
-            } text-white`}
-          >
+          <h2 className="text-2xl font-bold text-green-300 mt-4 lg:mt-0">
+            Linki
+          </h2>
+          <div className={`grid grid-cols-1 text-white`}>
             <div
               className={`xl:pr-2 py-3 xl:block flex flex-col ${
-                isProductSlug ? "" : "items-center justify-center text-center"
+                isProductSlug ? "" : "items-start justify-center text-center"
               }`}
             >
               <Link
@@ -126,12 +130,20 @@ export default function ShopFooter({
                 Blog
               </Link>
               <Link
-                href="/shop"
+                href="/"
                 className="mt-2 flex flex-row items-center hover:text-green-300 w-max"
-                title="Kup coś na sklepie"
+                title="Kup coś w sklepie"
               >
                 <FaShoppingCart className="w-5 h-5 mr-2 text-white" />
                 Sklep z obrazami
+              </Link>
+              <Link
+                href="/tatuaz-grudziadz"
+                className="mt-2 flex flex-row items-center hover:text-green-300 w-max"
+                title="Umów się na tatuaż"
+              >
+                <FaClock className="w-5 h-5 mr-2 text-white" />
+                Sesja tatuażu
               </Link>
               <Link
                 href="/studio-tatuazu-grudziadz-wzory"
@@ -144,9 +156,7 @@ export default function ShopFooter({
             </div>
             <div
               className={`xl:pl-2 mt-3 xl:mt-0 w-full flex flex-col py-3 ${
-                isProductSlug
-                  ? "items-start"
-                  : "xl:items-end justify-center items-center"
+                isProductSlug ? "items-start" : "justify-start items-start"
               }`}
             >
               <Link

@@ -13,6 +13,7 @@ const config: Config = {
       fontFamily: {
         coco: ["var(--font-cocosharp)"],
         anton: ["var(--font-anton)"],
+        cardo: ["var(--font-cardo)"],
       },
       backgroundImage: {
         "form-img": "url('/images/bg-lines/form.png')",

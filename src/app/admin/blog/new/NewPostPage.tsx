@@ -37,7 +37,6 @@ export default function NewPostPage() {
   });
   const [sectionEditorOpen, setSectionEditorOpen] = useState(false);
   const [tagInput, setTagInput] = useState("");
-  const [messageVisible, setMessageVisible] = useState(false);
   const addSection = (title: string, content: EditorState) => {
     setInput((prevInput: any) => ({
       ...prevInput,
@@ -80,14 +79,6 @@ export default function NewPostPage() {
         />
 
         <div className="relative">
-          {messageVisible && (
-            <div
-              className={`z-[1000] bg-green-500 text-3xl w-screen lg:w-max h-max p-12 fixed left-[50%] -translate-x-[50%] top-[50%] -translate-y-[50%] flex items-center justify-center`}
-            >
-              Twój link do posta to: /{polishToEnglish(input.title)}
-            </div>
-          )}
-
           <div className="grid grid-cols-1 lg:grid-cols-2 pt-0 pr-0 text-white gap-y-6 w-full">
             <div className="flex flex-col space-y-3 w-full bg-[#13151f] px-5 pb-12">
               <Link
@@ -132,7 +123,7 @@ export default function NewPostPage() {
                     />
                   </div>
                   <div className="flex flex-col my-3 space-y-3">
-                    Tytuł SEO
+                    Tytuł dla google
                     <textarea
                       placeholder="Wpisz tytuł SEO... (max 60 znaków)"
                       rows={5}
@@ -145,7 +136,7 @@ export default function NewPostPage() {
                     Pozostałe znaki: {60 - input.metaTitle.length}/60
                   </div>
                   <div className="flex flex-col my-3 space-y-3">
-                    Opis SEO
+                    Opis dla google
                     <textarea
                       placeholder="Wpisz opis SEO... (max 160 znaków)"
                       rows={5}
@@ -238,12 +229,12 @@ export default function NewPostPage() {
               </button>
             </div>
             <div className="flex flex-col relative w-full ">
-              <div className="absolute w-full ">
+              <div className="left-0 top-0 absolute w-full ">
                 <div className="fixed h-screen overflow-y-scroll scrollbarMain w-full">
                   <h1 className="w-full px-3 pl-12 text-3xl text-white font-bold z-[50] pt-24">
                     Podgląd
                   </h1>
-                  <div className="flex flex-col p-12  prose lg:prose-xl prose-invert pr-28">
+                  <div className="flex flex-col p-12  prose 2xl:prose-xl prose-invert w-[50vw]">
                     <h1 className="leading-relaxed font-bold">{input.title}</h1>
                     <p className="leading-relaxed">
                       <div

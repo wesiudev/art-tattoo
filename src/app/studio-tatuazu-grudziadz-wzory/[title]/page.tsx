@@ -3,7 +3,6 @@ import { Tattoo } from "@/types";
 import { polishToEnglish } from "../../../../utils/polishToEnglish";
 import Image from "next/image";
 import Link from "next/link";
-import Navigation from "./Navigation";
 import { FaInfoCircle } from "react-icons/fa";
 import didYouKnowArray from "./didyouknow.json";
 import DidYouKnow from "./DidYouKnow";
@@ -26,7 +25,6 @@ export default async function Page({ params }: { params: Tattoo }) {
 
   return (
     <div className="w-full min-h-screen bg-[#404040] mt-[60px] overflow-x-hidden flex flex-col">
-      <Navigation />
       <div className="w-full">
         <div className="w-[100vw] border-b-2 border-[#606060]  bg-[#404040] z-50 flex flex-col lg:flex-row ">
           <div className="lg:w-[40vw]">

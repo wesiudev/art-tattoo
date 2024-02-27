@@ -26,10 +26,10 @@ export default function AboutShop({
         />
       </div>
       <div className="bg-purple-400 lg:rounded-l-none rounded-xl w-full mx-auto mb-3 sm:mb-6 lg:mb-0 lg:px-8 flex flex-col items-start lg:justify-center p-5 md:p-6">
-        <h2 className="text-3xl lg:text-2xl xl:text-4xl font-extrabold  tracking-tight mb-4 text-white drop-shadow-md shadow-black ">
+        <h2 className="text-3xl lg:text-2xl xl:text-4xl font-bold font-cardo tracking-tight mb-4 text-white drop-shadow-md shadow-black ">
           {title}
         </h2>
-        <div className="flex flex-col md:flex-row md:space-x-4 lg:text-xl xl:text-2xl ">
+        <div className="flex flex-col md:flex-row md:space-x-4 lg:text-lg">
           <div className="md:w-4/5 text-white">{description}</div>
         </div>
       </div>

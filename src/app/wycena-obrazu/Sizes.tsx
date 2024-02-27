@@ -27,7 +27,7 @@ export default function Sizes({
           }  group  duration-300 w-full flex justify-between flex-row items-center border border-purple-400 rounded-3xl overflow-hidden`}
         >
           <div
-            className={`min-w-[5vw] duration-500 text-left h-full py-3 lg:py-6 px-3 lg:px-12 text-white font-bold text-xl md:text-2xl bg-purple-400 ${
+            className={`min-w-[5vw] duration-500 text-left h-full py-3 lg:py-6 px-3 lg:px-6 text-white font-bold text-lg lg:text-xl bg-purple-400 ${
               userInput.size === item.size
                 ? "underline min-w-3/4"
                 : "group-hover:underline group-hover:w-3/4"
@@ -39,11 +39,11 @@ export default function Sizes({
           <div
             className={`${
               userInput.size === item.size ? "" : "group-hover:hidden"
-            } text-gray-500 text-xl px-12 font-bold duration-300 w-max`}
+            } text-gray-500 text-sm px-3 lg:px-6 font-bold duration-300 w-max`}
           >
             {userInput.size === item.size ? (
               <div className="flex flex-row items-center text-white">
-                Wybrany rozmiar <FaCheck className="ml-3 text-green-400" />
+                Wybrano <FaCheck className="ml-3 text-green-400" />
               </div>
             ) : (
               <>
@@ -53,7 +53,7 @@ export default function Sizes({
           </div>
           {userInput.size !== item.size && (
             <div
-              className={`flex-row items-center text-white text-xl px-12 font-bold group-hover:flex hidden duration-300 w-max`}
+              className={`flex-row items-center text-white text-sm lg:text-xl px-3 lg:px-6 font-bold group-hover:flex hidden duration-300 w-max`}
             >
               Wybierz <FaLongArrowAltRight className="ml-3" />
             </div>

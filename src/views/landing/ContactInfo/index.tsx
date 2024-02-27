@@ -76,7 +76,7 @@ const TeamsDescPart = () => {
         />
       </DescContent>
       <MorganSection className="w-full !flex !flex-col !justify-center  border-[#8f26f3] my-12 pb-12">
-        <h3 className="!text-3xl sm:!text-4xl ">obrazy na zamówienie</h3>
+        <h3 className="!text-3xl sm:!text-4xl">obrazy na zamówienie</h3>
         <h4 className="font-coco text-white lg:px-36 text-center !px-3">
           Przekształcę Twoje pomysły w piękne dzieła sztuki. Jeśli jesteś
           zainteresowany spersonalizowanym obrazem, który idealnie odzwierciedli
@@ -84,7 +84,7 @@ const TeamsDescPart = () => {
           misją, a każdy szczegół ma znaczenie.
         </h4>
         <Link
-          href="/shop"
+          href="/"
           className="bg-[#8f26f3] text-white drop-shadow-md shadow-black text-3xl p-2 px-4 font-coco font-light hover:bg-purple-400 w-max mx-auto mt-6"
         >
           Sprawdź sklep

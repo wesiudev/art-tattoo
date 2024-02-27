@@ -1,11 +1,11 @@
 "use client";
 import Link from "next/link";
-import TopBar from "../shop/components/ShopHeader/TopBar";
-import { FaCheck, FaLongArrowAltRight } from "react-icons/fa";
+import TopBar from "../(home)/components/ShopHero/TopBar";
+import { FaCheck } from "react-icons/fa";
 import { useState } from "react";
 import Sizes from "./Sizes";
 import Media from "./Media";
-import PrepareCart from "../shop/components/PrepareCart";
+import PrepareCart from "../(home)/components/PrepareCart";
 import Details from "./Details";
 import ImageInput from "./ImageInput";
 import { v4 as uuidv4 } from "uuid";
@@ -68,11 +68,10 @@ export default function Page() {
     <div className="bg-white min-h-screen w-full py-32 px-5 lg:px-[8vw] xl:px-[12vw] flex flex-col items-center justify-center font-coco">
       <TopBar />
       <PrepareCart />
-
       <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold mb-12 text-zinc-800 drop-shadow-md shadow-black">
         Wycena obrazu na zamówienie
       </h1>
-      <div className="bg-gray-100 rounded-xl border border-gray-400 p-6 lg:p-8 xl:p-10 2xl:p-12 !pb-6 w-full min-h-[60vh] flex flex-col justify-between">
+      <div className="bg-gray-100 rounded-xl border border-gray-400 p-6 lg:p-8 xl:p-10 2xl:p-12 !pb-6 w-full min-h-[60vh] flex flex-col justify-start">
         {isSent && (
           <div className="w-full min-h-[50vh] flex flex-col items-center justify-center text-center text-gray-500">
             <div className="h-max my-auto">
@@ -89,16 +88,13 @@ export default function Page() {
           <>
             {userInput.size.name === "" && (
               <>
-                <h2 className="text-3xl font-bold mb-3 text-white bg-purple-400 w-max py-1 px-3 rounded-3xl drop-shadow-md shadow-black">
+                <h2 className="text-xl lg:text-3xl font-bold text-white bg-purple-400 w-max py-1 px-3 rounded-lg drop-shadow-md shadow-black">
                   Rozmiar obrazu
                 </h2>
-                <p className="text-gray-500 text-sm md:text-base mb-6">
+                <p className="text-gray-500 text-sm md:text-base my-6">
                   Wybierzmy najistotniejszy element obrazu, jakim jest jego
                   rozmiar, abyśmy mogli razem stworzyć dzieło dopasowane do
-                  Twoich osobistych preferencji. Dzięki temu będę w stanie
-                  dostosować cenę do Twoich indywidualnych oczekiwań, tworząc
-                  niepowtarzalną sztukę, która będzie doskonale odzwierciedlać
-                  Twoją wizję i estetyczne pragnienia.
+                  Twoich osobistych preferencji.
                 </p>
                 <Sizes
                   userInput={userInput}
@@ -109,15 +105,13 @@ export default function Page() {
             )}
             {userInput.size.name !== "" && userInput.media.name === "" && (
               <>
-                <h2 className="text-3xl font-bold mb-3 text-white bg-purple-400 w-max py-1 px-3 rounded-3xl drop-shadow-md shadow-black">
+                <h2 className="text-xl lg:text-3xl font-bold text-white bg-purple-400 w-max py-1 px-3 rounded-lg drop-shadow-md shadow-black">
                   Medium obrazu
                 </h2>
-                <p className="text-gray-500 text-sm md:text-base mb-6">
+                <p className="text-gray-500 text-sm md:text-base my-6">
                   Przechodząc do następnego kroku, zastanówmy się nad wyborem
                   odpowiednich mediów do stworzenia tego dzieła sztuki. Każde
-                  medium niesie ze sobą unikalną siłę wyrazu i atmosferę. Twój
-                  wybór wpłynie nie tylko na wizualny aspekt obrazu, lecz
-                  również na jego oddziaływanie emocjonalne.
+                  medium niesie ze sobą unikalną siłę wyrazu i atmosferę.
                 </p>
                 <Media
                   userInput={userInput}
@@ -143,14 +137,13 @@ export default function Page() {
             {userInput.size.name !== "" && userInput.media.name !== "" && (
               <>
                 <div>
-                  <h2 className="text-3xl font-bold mb-3 text-white bg-purple-400 w-max py-1 px-3 rounded-3xl drop-shadow-md shadow-black">
+                  <h2 className="text-xl lg:text-3xl font-bold text-white bg-purple-400 w-max py-1 px-3 rounded-lg drop-shadow-md shadow-black">
                     Ilość szczegółów
                   </h2>
-                  <p className="text-gray-500 text-sm md:text-base mb-6">
+                  <p className="text-gray-500 text-sm md:text-base my-6">
                     W tym etapie masz możliwość wybrania ilości detali, które
-                    dodadzą wyjątkowy charakter Twojemu dziełu sztuki. Pamiętaj,
-                    że każdy wybrany detal ma swoją cenę, która wpłynie na
-                    ostateczny koszt zamówienia.
+                    dodadzą wyjątkowy charakter Twojemu dziełu sztuki. Ilość
+                    detali wpłynie na ostateczny koszt zamówienia.
                   </p>
                 </div>
                 <Details
@@ -158,7 +151,7 @@ export default function Page() {
                   sizes={sizes}
                   setUserInput={setUserInput}
                 />
-                <div className="w-full flex flex-col items-center justify-center mt-12">
+                <div className="w-full flex flex-col items-center justify-center mt-6">
                   {userInput.details.name !== "" && (
                     <>
                       <p className="mb-3 text-gray-500 ">
@@ -173,7 +166,7 @@ export default function Page() {
                     </>
                   )}
                   {error && (
-                    <div className="text-center text-red-400">
+                    <div className="text-center text-red-400 my-2">
                       Błędny numer telefonu
                     </div>
                   )}
@@ -213,7 +206,10 @@ export default function Page() {
                         </span>
                       </p>
 
-                      <form className="flex flex-col" onSubmit={handleSubmit}>
+                      <form
+                        className="flex flex-col w-full"
+                        onSubmit={handleSubmit}
+                      >
                         <input
                           type="text"
                           placeholder="Numer telefonu"
