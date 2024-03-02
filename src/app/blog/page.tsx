@@ -9,6 +9,7 @@ export default async function Blog() {
   const isArtBlogAvailable = posts?.posts?.some(
     (post: Post) => post.blogType === "art"
   );
+
   return (
     <div className="flex flex-col justify-center items-center w-screen min-h-screen">
       <h1 className="text-3xl text-center text-zinc-700 drop-shadow-lg shadow-black font-bold">

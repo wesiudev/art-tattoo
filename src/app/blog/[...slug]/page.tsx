@@ -8,6 +8,7 @@ import { getBlogPosts } from "@/firebase";
 import moment from "moment";
 import "moment/locale/pl";
 import Image from "next/image";
+import React from "react";
 export async function generateStaticParams() {
   const posts = await getBlogPosts();
 
@@ -122,31 +123,33 @@ export default async function Page({ params }: { params: any }) {
               Przeczytaj też
             </span>
             <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-6 mt-8">
-              {posts.posts.map((post: Post, i: number) => (
-                <>
-                  {post?.url !== params.slug[1] &&
-                    post?.blogType === params.slug[0] && (
+              {posts?.posts?.filter(
+                (post: Post) =>
+                  post.blogType === "art" || post.blogType === "tattoo"
+              ).length > 1 &&
+                posts?.posts?.map((post: Post, i: number) => (
+                  <React.Fragment key={i}>
+                    {post?.url !== params.slug[1] && (
                       <Link
-                        href={`/blog/tattoo/${post.url}`}
-                        key={i}
+                        href={`/blog/${post.blogType}/${post.url}`}
                         className="group relative aspect-square h-max flex flex-col hover:bg-purple-300 hover:p-1 duration-300 ease-in-out rounded-lg shadow-md  shadow-zinc-700"
                       >
-                        <div className="w-full overflow-hidden flex items-start">
+                        <div className="w-full overflow-hidden rounded-lg flex items-center justify-center aspect-square">
                           <Image
                             src={post.mainImage}
                             width={1024}
                             height={1024}
-                            alt={post.title + post.blogType}
-                            className="w-full object-contain rounded-lg shadow-md shadow-zinc-700"
+                            alt={`${post.title} ${post.blogType}`}
+                            className="w-full h-auto object-contain rounded-lg shadow-md shadow-zinc-700"
                           />
                         </div>
-                        <span className="group-hover:bg-gray-200 duration-300 group-hover:p-4 absolute bottom-3 left-3 right-3 text-base lg:text-xl  drop-shadow-xl shadow-black mt-3 bg-white text-zinc-700 font-bold  text-left p-3 rounded-lg">
+                        <span className="group-hover:bg-gray-200 duration-300 group-hover:p-4 absolute bottom-3 left-3 right-3 text-base lg:text-xl drop-shadow-xl shadow-black mt-3 bg-white text-zinc-700 font-bold text-left p-3 rounded-lg">
                           {post.title}
                         </span>
                       </Link>
                     )}
-                </>
-              ))}
+                  </React.Fragment>
+                ))}
             </div>
           </div>
         </div>
