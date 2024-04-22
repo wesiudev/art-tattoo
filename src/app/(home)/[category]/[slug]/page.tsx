@@ -46,7 +46,7 @@ export default async function Page({ params }: { params: ArtworkData }) {
             </span>
           </h2>
           <span className="text-zinc-600 drop-shadow-lg shadow-black text-lg font-bold">
-            ({product.dimensions})
+            {product.dimensions}
           </span>
           <p className="text-zinc-700 text-lg sm:text-base xl:text-lg text-left my-3">
             {product.description}
@@ -76,7 +76,7 @@ export default async function Page({ params }: { params: ArtworkData }) {
           {product.category === "artwork" && product.isPrint && (
             <span className="text-zinc-500 drop-shadow-lg shadow-black text-lg">
               <Link
-                href={`/shop/print/${product.slug}`}
+                href={`/print/${product.slug}`}
                 className="flex flex-row items-center"
               >
                 <FaCheck className="mr-2 text-green-600" /> Druk dostępny -{" "}
