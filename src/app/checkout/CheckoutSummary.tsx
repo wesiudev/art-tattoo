@@ -47,7 +47,7 @@ export default function CheckoutSummary({ cart }: { cart: any }) {
           {cart?.length && (
             <>
               <Link
-                href="https://blackbellart.com/shop"
+                href="https://blackbellart.com/"
                 className="text-white font-bold text-xl flex flex-row items-center mb-12 px-6 sm:px-36 lg:px-24"
               >
                 <FaArrowLeft className="mr-2" />
@@ -75,7 +75,7 @@ export default function CheckoutSummary({ cart }: { cart: any }) {
                         </div>
                         <div className="pl-2 w-2/3">
                           <Link
-                            href={`/shop/${item.category}/${item.slug}`}
+                            href={`/${item.category}/${item.slug}`}
                             className="text-lg font-bold "
                           >
                             {item.title}

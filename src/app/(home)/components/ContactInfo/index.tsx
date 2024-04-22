@@ -84,10 +84,10 @@ const TeamsDescPart = () => {
           misją, a każdy szczegół ma znaczenie.
         </h4>
         <Link
-          href="/shop"
+          href="/"
           className="bg-[#8f26f3] text-white drop-shadow-md shadow-black text-3xl p-2 px-4 font-coco font-light hover:bg-purple-400 w-max mx-auto mt-6"
         >
-          Sprawdź sklep
+          Zobacz w sklepie
         </Link>
       </MorganSection>
     </TeamDescWrapper>

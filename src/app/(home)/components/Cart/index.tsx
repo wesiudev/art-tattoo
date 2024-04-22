@@ -70,7 +70,7 @@ export default function Cart({
                         <div className="pl-2 w-full">
                           <div className="w-full flex flex-row justify-between">
                             <Link
-                              href={`/shop/${item.category}/${item.slug}`}
+                              href={`/${item.category}/${item.slug}`}
                               className="text-lg font-bold"
                             >
                               {item.title}{" "}

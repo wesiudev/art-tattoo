@@ -66,9 +66,9 @@ const Header = () => {
       <HeaderContainer id="header">
         {!mobile && (
           <MenuLists>
-            {/* <MenuItem href="/shop" className="!text-yellow-400 ">
+            <MenuItem href="/" className="!text-yellow-400 ">
               sklep
-            </MenuItem> */}
+            </MenuItem>
             <MenuItem href="#art" active={active === 1}>
               sztuka
             </MenuItem>
@@ -167,7 +167,7 @@ const Header = () => {
           </SideBarItem>
           <SideBarItem
             onClick={() => setMenuShow(false)}
-            href="/shop"
+            href="/"
             className="!text-2xl"
           >
             sklep

@@ -25,7 +25,7 @@ export default async function Checkout({ params }: { params: { id: string } }) {
           Nie znaleziono zamówienia
         </h1>
         <Link
-          href="https://blackbellart.com/shop"
+          href="https://blackbellart.com/"
           className="text-white font-bold text-xl flex flex-row items-center relative z-50"
         >
           <FaArrowLeft className="mr-2" />
@@ -37,7 +37,7 @@ export default async function Checkout({ params }: { params: { id: string } }) {
   return (
     <div className="p-5 lg:p-7 xl:p-12">
       <Link
-        href="https://blackbellart.com/shop"
+        href="https://blackbellart.com/"
         className="text-white font-bold text-xl flex flex-row items-center relative z-50"
       >
         <FaArrowLeft className="mr-2" />

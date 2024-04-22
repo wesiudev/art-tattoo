@@ -119,7 +119,7 @@ export default async function Page({ params }: { params: ArtworkData }) {
                     i <= 6 && (
                       <Link
                         key={i}
-                        href={`/shop/${item.category}/${item.slug}`}
+                        href={`/${item.category}/${item.slug}`}
                         className="text-blue-400 flex flex-col relative overflow-y-hidden group"
                       >
                         <Image
