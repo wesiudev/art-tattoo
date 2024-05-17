@@ -17,9 +17,9 @@ export default function Orders() {
       </div>
       <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 ">
         <div className="relative max-w-2xl sm:mx-auto sm:max-w-xl md:max-w-2xl sm:text-center bg-white p-3 lg:p-6 shadow-sm shadow-black rounded-xl">
-          <h2 className="mb-6 font-cardo text-3xl font-bold tracking-tight text-zinc-800 drop-shadow-lg shadow-black sm:text-4xl sm:leading-none">
+          <h4 className="mb-6 font-cardo text-3xl font-bold tracking-tight text-zinc-800 drop-shadow-lg shadow-black sm:text-4xl sm:leading-none">
             Obrazy na zamówienie
-          </h2>
+          </h4>
           <p className="mb-6 text-base  tracking-wide text-gray-600 md:text-lg  drop-shadow-lg shadow-black">
             Oferuję wykonanie obrazów na zamówienie. Jeśli masz pomysł na obraz
             na płótnie, który chciałbyś/chciałabyś mieć na ścianie, wypełnij

@@ -39,9 +39,9 @@ export default async function Page() {
           </Link>{" "}
           /{" "}
         </span>
-        <div className="text-3xl text-zinc-800 drop-shadow-lg shadow-black font-bold mt-12">
+        <h1 className="text-3xl text-zinc-800 drop-shadow-lg shadow-black font-bold mt-12">
           Blog o sztuce
-        </div>
+        </h1>
         <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8">
           {posts?.posts?.map((post: Post, i: number) => (
             <>

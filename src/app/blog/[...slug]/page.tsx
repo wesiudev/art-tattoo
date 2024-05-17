@@ -118,6 +118,28 @@ export default async function Page({ params }: { params: any }) {
               </div>
             </div>
           </div>
+          {post.faq.length > 0 && (
+            <div className="my-6 w-full px-5 lg:px-[8vw] xl:px-[12vw] font-coco">
+              <h2 className="text-3xl text-zinc-800 drop-shadow-lg shadow-black font-bold">
+                Często zadawane pytania
+              </h2>
+              <p className="mt-4">
+                Tutaj znajdziesz odpowiedzi na temat:{" "}
+                <strong>{post.title}</strong>
+              </p>
+              {post.faq.map((item: any, i: any) => (
+                <div
+                  key={i}
+                  className="flex flex-col bg-gray-200 mt-3 p-3 rounded-xl"
+                >
+                  <h3 className="text-zinc-800 drop-shadow-lg shadow-black text-2xl font-bold">
+                    {item.question}
+                  </h3>
+                  <p>{item.answer}</p>
+                </div>
+              ))}
+            </div>
+          )}
           <div className="mt-24 w-full px-5 lg:px-[8vw] xl:px-[12vw] py-12 bg-gray-200">
             <span className="text-3xl text-zinc-800 drop-shadow-lg shadow-black font-bold mt-12">
               Przeczytaj też

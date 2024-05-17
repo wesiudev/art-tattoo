@@ -95,9 +95,9 @@ const Header = () => {
             <MenuItem href="#contact" active={active === 4}>
               kontakt
             </MenuItem>
-            {/* <MenuItem href="/blog" className="!text-yellow-400">
+            <MenuItem href="/blog" className="!text-yellow-400">
               BLOG
-            </MenuItem> */}
+            </MenuItem>
           </MenuLists>
         )}
         {/* <MenuItem > */}

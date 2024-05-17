@@ -57,7 +57,12 @@ export default function Nav({
       icon: <FaShoppingCart />,
       subItems: [
         {
-          title: "Dodaj produkt",
+          title: "Dodaj naklejkę",
+          href: `/admin/shop/add-sticker`,
+          icon: <FaPlus />,
+        },
+        {
+          title: "Dodaj Obraz",
           href: `/admin/shop/add-product`,
           icon: <FaPlus />,
         },

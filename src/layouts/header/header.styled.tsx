@@ -2,7 +2,7 @@
 import styled from "styled-components";
 
 export const HeaderWrapper = styled.div`
-  position: fixed;
+  position: sticky;
   width: 100%;
   top: 0;
   z-index: 99999;

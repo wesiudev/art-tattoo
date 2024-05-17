@@ -33,18 +33,14 @@ export default async function Page({ params }: { params: ArtworkData }) {
 
   return (
     <div className="relative font-coco grid grid-cols-1 lg:grid-cols-2 lg:pb-0 mt-[66px] min-h-screen">
-      <Layout>
-        <Canvas3D image={product.images[0]} shape={product.alignment} />
-      </Layout>
-
       <div className="bg-white w-[100%] relative z-[55] select-none mt-[50vh] lg:mt-[0vh] lg:absolute lg:right-0 lg:top-0 lg:w-[50vw] min-h-screen">
         <div className="p-3 lg:p-6 xl:p-8 ">
-          <h2 className="text-zinc-800 drop-shadow-lg shadow-black text-xl sm:text-3xl xl:text-4xl text-center lg:text-left font-bold flex flex-row items-center">
+          <h1 className="text-zinc-800 drop-shadow-lg shadow-black text-xl sm:text-3xl xl:text-4xl text-center lg:text-left font-bold flex flex-row items-center">
             {product.title}
             <span className="text-zinc-800 bg-purple-300 p-2 rounded-xl drop-shadow-lg shadow-black text-xl ml-3 !font-bold">
               {getPolishCurrency(product.price)}
             </span>
-          </h2>
+          </h1>
           <span className="text-zinc-600 drop-shadow-lg shadow-black text-lg font-bold">
             {product.dimensions}
           </span>
