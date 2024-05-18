@@ -100,9 +100,7 @@ export default async function Page({ params }: { params: any }) {
                     </h2>
                     <div
                       className=""
-                      dangerouslySetInnerHTML={{
-                        __html: section.content,
-                      }}
+                      dangerouslySetInnerHTML={renderMarkdown(section.content)}
                     />
                   </div>
                 ))}

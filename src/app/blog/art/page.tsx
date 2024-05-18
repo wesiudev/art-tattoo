@@ -42,7 +42,7 @@ export default async function Page() {
         <h1 className="text-3xl text-zinc-800 drop-shadow-lg shadow-black font-bold mt-12">
           Blog o sztuce
         </h1>
-        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8">
           {posts?.posts?.map((post: Post, i: number) => (
             <>
               {post.blogType === "art" && (
@@ -78,27 +78,11 @@ export const metadata: Metadata = {
   publisher: "Black Bell Tattoo & Art",
   manifest: "/manifest.json",
   keywords: [
-    "Blog o tatuażach",
-    "Kultura tatuażu",
-    "Znaczenia tatuaży",
-    "Moda tatuażowa",
-    "Trendy w sztuce ciała",
-    "Inspiracje tuszem",
-    "Symbolika tatuaży",
-    "Style tatuaży",
-    "Pomysły na wzory tatuaży",
-    "Wyrażenia artystyczne",
-    "Skóra jako płótno",
-    "Trwały tusz",
-    "Estetyka tatuażu",
-    "Modyfikacje ciała",
-    "Kulturowe znaczenie tatuaży",
-    "Tatuaże personalizowane",
-    "Historia tatuaży",
-    "Lokalizacja tatuaży",
-    "Artyści tatuażu",
-    "Unikalne wzory",
-    "Symboliczne sztuki ciała",
+    "Blog o sztuce",
+    "Sztuka",
+    "Ciekawostki o sztuce",
+    "Porady o sztuce",
+    "Ciekawostki o stylu malowania",
   ],
   verification: {
     google: "google85185d3abec28326.html",

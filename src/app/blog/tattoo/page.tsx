@@ -42,7 +42,7 @@ export default async function Page() {
         <div className="text-3xl text-zinc-800 drop-shadow-lg shadow-black font-bold mt-12">
           Wszystkie posty
         </div>
-        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8">
           {posts?.posts?.map((post: Post, i: number) => (
             <>
               {post.blogType === "tattoo" && (
