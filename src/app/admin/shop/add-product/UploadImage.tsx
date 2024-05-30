@@ -7,10 +7,11 @@ import { FaInfoCircle } from "react-icons/fa";
 import Image from "next/image";
 import { polishToEnglish } from "../../../../../utils/polishToEnglish";
 import { ArtworkData } from "@/types";
+import EditProduct from "./EditProduct";
 
 export default function UploadImage({ products }: any) {
   const [chosenImg, setChosenImg] = useState<any>();
-  const [startDelete, setStartDelete] = useState("");
+  const [editingProduct, setEditingProduct] = useState("");
   const [justDeleted, setJustDeleted] = useState<any[]>([]);
   const [showMessage, setShowMessage] = useState("");
   const [isLoading, setLoading] = useState(false);
@@ -19,15 +20,7 @@ export default function UploadImage({ products }: any) {
     content: "",
   });
   const categories = ["sticker", "artwork", "inspiration", "print"];
-  const alignments = [
-    "square",
-    "vertical",
-    "vertical-thin",
-    "horizontal",
-    "horizontal-thin",
-  ];
   const [selectedCategory, setSelectedCategory] = useState("");
-  const [selectedAlignment, setSelectedAlignment] = useState("");
   const initialState: ArtworkData = {
     images: [],
     title: "",
@@ -60,7 +53,6 @@ export default function UploadImage({ products }: any) {
       sections: artworkData.sections,
       description: artworkData.description,
       category: selectedCategory,
-      alignment: selectedAlignment,
       keywords: artworkData.keywords,
     };
     addProduct(req);
@@ -88,6 +80,17 @@ export default function UploadImage({ products }: any) {
 
   return (
     <div className="relative">
+      {editingProduct !== "" && (
+        <div
+          className={`z-[9999] h-screen overflow-y-scroll w-full scrollbar fixed left-[50%] top-[50%] -translate-x-[50%] -translate-y-[50%] bg-slate-700 p-24 duration-500`}
+        >
+          <EditProduct
+            product={editingProduct}
+            initialState={initialState}
+            setEditingProduct={setEditingProduct}
+          />
+        </div>
+      )}
       <div
         className={`z-[9999] h-screen overflow-y-scroll w-full scrollbar fixed left-[50%] top-[50%] -translate-x-[50%] -translate-y-[50%] bg-slate-700 p-24 duration-500 ${
           artworkData.images.length > 0
@@ -334,116 +337,6 @@ export default function UploadImage({ products }: any) {
               </select>
             </div>
           </div>
-          <div className="p-6 rounded-xl bg-white border-4 border-black w-full mt-6">
-            <div className="flex flex-col">
-              <span className="font-bold mb-5 text-3xl">Ułożenie</span>
-              <div className="group ">
-                <h1 className="flex flex-row items-center mb-5 cursor-pointer">
-                  <FaInfoCircle className="w-8 h-8 mr-3 text-blue-500" />
-                  Ważne informacje
-                </h1>
-
-                <div className="grid-cols-1 mb-5 gap-6 hidden group-hover:grid duration-500">
-                  <div className="flex flex-col bg-slate-700 p-3 rounded-xl">
-                    <p className="text-white">kwadrat</p>
-                    <h2 className="text-green-500">np 30x30</h2>
-                  </div>
-                  <div className="flex flex-col bg-slate-700 p-3 rounded-xl">
-                    <p className="text-white">panorama pozioma zwykła</p>
-                    <h2 className="text-green-500">np 30x40</h2>
-                  </div>
-                  <div className="flex flex-col bg-slate-700 p-3 rounded-xl">
-                    <p className="text-white">panorama pozioma długa</p>
-                    <h2 className="text-green-500">np 30x60</h2>
-                  </div>
-                  <div className="flex flex-col bg-slate-700 p-3 rounded-xl">
-                    <p className="text-white">panorama pionowa zwykła</p>
-                    <h2 className="text-green-500">np 30x40</h2>
-                  </div>
-                  <div className="flex flex-col bg-slate-700 p-3 rounded-xl">
-                    <p className="text-white">panorama pionowa długa</p>
-                    <h2 className="text-green-500">np 30x60</h2>
-                  </div>
-                </div>
-              </div>
-              <select
-                className="p-3 drop-shadow-md shadow-black rounded-md border-2 border-black mt-3"
-                id="alignment"
-                value={selectedAlignment}
-                onChange={(e) => setSelectedAlignment(e.target.value)}
-              >
-                <option value="">Wybierz kategorię (ważne)</option>
-                {alignments.map((alignment) => (
-                  <option key={alignment} value={alignment}>
-                    {alignment}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
-          <div className="p-6 rounded-xl bg-white border-4 border-black w-full mt-6">
-            <div className="flex flex-col">
-              <span className="font-bold mb-5 text-3xl">Słowa kluczowe</span>
-              <input
-                className={`font-bold text-zinc-700 drop-shadow-md shadow-black p-3 rounded-md ${
-                  artworkData.keywords
-                    ? "border-2 border-green-500"
-                    : "border-2"
-                }`}
-                type="text"
-                value={artworkData.keywords}
-                onChange={(e) =>
-                  handleArtworkDataChange("keywords", e.target.value)
-                }
-              />
-            </div>
-          </div>
-          <div className="p-6 rounded-xl bg-white border-4 border-black w-full mt-6">
-            <div className="flex flex-col">
-              <span className="font-bold mb-5 text-3xl">
-                SEKCJA POD PRODUKTEM (POD SŁOWA KLUCZOWE)
-              </span>
-              <span className="font-bold mb-5 text-3xl">Tytuł opisu</span>
-              <input
-                className={`font-bold text-zinc-700 drop-shadow-md shadow-black p-3 rounded-md ${
-                  sectionInput.title ? "border-2 border-green-500" : "border-2"
-                }`}
-                type="text"
-                value={sectionInput.title}
-                onChange={(e) =>
-                  setSectionInput({ ...sectionInput, title: e.target.value })
-                }
-              />
-              <span className="font-bold my-5 text-3xl">Opis</span>
-              <input
-                className={`font-bold text-zinc-700 drop-shadow-md shadow-black p-3 rounded-md ${
-                  sectionInput.content
-                    ? "border-2 border-green-500"
-                    : "border-2"
-                }`}
-                type="text"
-                value={sectionInput.content}
-                onChange={(e) =>
-                  setSectionInput({ ...sectionInput, content: e.target.value })
-                }
-              />
-            </div>
-            <button
-              className="rounded-xl px-12 mt-6 w-max bg-green-500 hover:bg-green-400 p-3 duration-200 text-white text-2xl disabled:cursor-not-allowed disabled:bg-green-200"
-              onClick={() => {
-                setArtworkData((prevData: ArtworkData) => ({
-                  ...prevData,
-                  sections: [...prevData.sections, sectionInput],
-                }));
-                setSectionInput({
-                  ...sectionInput,
-                  content: "",
-                });
-              }}
-            >
-              Zatwierdź sekcję
-            </button>
-          </div>
         </div>
 
         <div className="mt-6 mx-auto w-max mb-6 space-x-12">
@@ -474,16 +367,7 @@ export default function UploadImage({ products }: any) {
           </button>
         </div>
       </div>
-      {showMessage === "deleted" && (
-        <div className="w-max h-max absolute left-[50%] -translate-x-[50%] top-[50%] -translate-y-[50%] bg-rose-400 text-white text-2xl p-3 ronded-md ">
-          usunięto
-        </div>
-      )}
-      {showMessage === "added" && (
-        <div className="w-max h-max absolute left-[50%] -translate-x-[50%] top-[50%] -translate-y-[50%] bg-green-400 text-white text-2xl p-3 ronded-md ">
-          dodano
-        </div>
-      )}{" "}
+
       <input
         className="w-full h-24 relative before:left-0 top-0 before:absolute before:h-full before:w-full before:bg-purple-500 before:text-white before:text-3xl before:text-center before:flex before:items-center before:justify-center  before:content-['DODAJ_NOWY_PRODUKT']"
         type="file"
@@ -500,60 +384,33 @@ export default function UploadImage({ products }: any) {
         Wszystkie obrazy na sklepie
       </h1>
       <div className="flex flex-row flex-wrap h-max bg-rose-200">
-        {products?.products?.length > 0 &&
-          products?.products?.map((image: any, i: any) => (
-            <div
-              className={`flex flex-col relative h-max ${
-                justDeleted.includes(image.id) ? "hidden" : "block"
-              }`}
-              key={i}
-            >
-              {startDelete === image.id && (
-                <div className="bg-white w-full h-full z-[60] absolute left-[50%] -translate-x-[50%] top-[50%] -translate-y-[50%] text-center text-xl flex flex-col justify-center">
-                  usunąć?
-                  <div className="flex flex-row w-full">
-                    <button
-                      onClick={() => {
-                        deleteProduct(image),
-                          setStartDelete(""),
-                          setJustDeleted((oldArray) => [
-                            ...oldArray!,
-                            image.id,
-                          ]);
-                        setShowMessage("deleted");
-                        setTimeout(() => {
-                          setShowMessage("");
-                        }, 3000);
-                      }}
-                      className="bg-red-500 p-3 w-full"
-                    >
-                      usuń
-                    </button>
-                    <button
-                      onClick={() => setStartDelete("")}
-                      className="bg-green-500 p-3 w-full"
-                    >
-                      nie
-                    </button>
-                  </div>
-                </div>
-              )}
-              <Image
-                className={`max-h-[300px] w-auto space-x-3 bg-gray-300 `}
-                width={1024}
-                height={1024}
-                src={image.images[0]}
-                alt=""
+        {products?.map((item: any, i: any) => (
+          <>
+            {item.category === "artwork" && (
+              <div
+                className={`flex flex-col relative h-max ${
+                  justDeleted.includes(item.id) ? "hidden" : "block"
+                }`}
                 key={i}
-              />
-              <button
-                onClick={() => setStartDelete(image.id)}
-                className="w-3/4 bg-opacity-75 hover:bg-opacity-100 duration-200 absolute bottom-3 left-[50%] -translate-x-[50%] z-50 py-3 text-white font-bold text-xl bg-red-500 hover:bg-red-400 rounded-md"
               >
-                usuń
-              </button>
-            </div>
-          ))}
+                <Image
+                  className={`max-h-[300px] w-auto space-x-3 bg-gray-300 `}
+                  width={1024}
+                  height={1024}
+                  src={item.images[0]}
+                  alt=""
+                  key={i}
+                />
+                <button
+                  onClick={() => setEditingProduct(item)}
+                  className="w-3/4 bg-opacity-75 hover:bg-opacity-100 duration-200 absolute bottom-3 left-[50%] -translate-x-[50%] z-50 py-3 text-white font-bold text-xl bg-green-500 hover:bg-green-400 rounded-md"
+                >
+                  Edytuj
+                </button>
+              </div>
+            )}
+          </>
+        ))}
       </div>
     </div>
   );

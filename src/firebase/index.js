@@ -102,6 +102,26 @@ async function addBlogPost(post) {
     });
   }
 }
+export async function updateProduct(productId, updatedProduct) {
+  const docRef = doc(db, websiteName, "products");
+  const docSnap = await getDoc(docRef);
+  if (docSnap.exists()) {
+    const products = docSnap.data().products;
+    const productIndexes = products.reduce((indexes, product, index) => {
+      if (product.id === productId) {
+        indexes.push(index);
+      }
+      return indexes;
+    }, []);
+
+    if (productIndexes.length > 0) {
+      productIndexes.forEach((index) => {
+        products[index] = updatedProduct;
+      });
+      await updateDoc(docRef, { products });
+    }
+  }
+}
 async function updateBlogPost(postId, updatedPost) {
   const docRef = doc(db, websiteName, "blog");
   const docSnap = await getDoc(docRef);

@@ -15,8 +15,8 @@ export default function ProductImages({ product }: { product: any }) {
           <div className="max-h-[80vh] w-[90%] overflow-y-scroll">
             <Image
               src={product.images[currentOpen]}
-              width={1024}
-              height={1024}
+              width={1920}
+              height={1080}
               alt=""
               className="w-full mx-auto"
             />

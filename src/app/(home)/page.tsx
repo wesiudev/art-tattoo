@@ -15,7 +15,9 @@ export default async function Shop() {
       <PrepareCart />
       <ShopHero />
       <Products products={products} />
-      <Orders />
+      <div className="mt-12">
+        <Orders />
+      </div>
       <ShopFooter />
     </div>
   );

@@ -62,42 +62,21 @@ export default function Nav({
           icon: <FaPlus />,
         },
         {
-          title: "Dodaj Obraz",
+          title: "Dodaj obraz",
           href: `/admin/shop/add-product`,
           icon: <FaPlus />,
         },
         {
-          title: "Edytuj produkt",
+          title: "Edytuj obraz",
           href: `/admin/shop/edit-product`,
           icon: <FaEdit />,
-        },
-        {
-          title: "Usuń produkt",
-          href: `/admin/shop/remove-product`,
-          icon: <FaRemoveFormat />,
         },
         {
           title: "Zamówienia",
           href: `/admin/shop/orders`,
           icon: <FaClipboardList />,
         },
-        {
-          title: "Utwórz promocję",
-          href: `/admin/shop/create-promo`,
-          icon: <FaTags />,
-        },
       ],
-    },
-    { title: "Użytkownicy", href: `/admin/users`, icon: <FaUsers /> },
-    {
-      title: "Statystyki",
-      href: `/admin/analytics`,
-      icon: <FaChartLine />,
-    },
-    {
-      title: "Ustawienia",
-      href: `/admin/configuration`,
-      icon: <FaCog />,
     },
     {
       title: "Logout",

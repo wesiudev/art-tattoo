@@ -14,7 +14,9 @@ export default function ShopLayout({
       <PrepareCart />
       <TopBar />
       {children}
-      <Orders />
+      <div className="mt-12">
+        <Orders />
+      </div>
       <ShopFooter />
     </div>
   );
