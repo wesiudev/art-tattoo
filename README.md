@@ -17,13 +17,13 @@ This is a **Next.js** application.
 - **Node.js** (version 14.x or newer)
 - **npm** or **yarn**
 
-## Getting Started
+## How to run
 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/your-repo.git
-   cd your-repo
+   git clone https://github.com/wesiudev/art-tattoo.git
+   cd art-tattoo
    ```
 
 2. Install dependencies:
